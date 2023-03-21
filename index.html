@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide-core.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/themes/splide-default.min.css">
+        <link rel="shortcut icon" href="data:image/png;base64,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" type="image/x-icon">
+    <title>Panda NFT</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__logo">
+                <a class="header__img" href="index.html">
+                    <img src="imgs/Logo.svg">
+                </a>
+                <h1>Panda NFT</h1>
+            </div>
+            <div class="burger">
+                <span class="burger__lines line1"></span>
+                <span class="burger__lines line2"></span>
+                <span class="burger__lines line3"></span>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Discover</a></li>
+                    <li><a href="#">Docs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+            <a class="header__connect" href="#">Connect Wallet</a>
+        </header>
+        <main class="main">
+            <section class="sec1">
+                <div class="sec1__left">
+                    <h2 class="sec1__left-txt">Discover a New Era of Crypto Currency</h2>
+                </div>
+                <div class="sec1__right">
+                    <h4 class="sec1__right-txt">
+                        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+                        consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.
+                    </h4>
+                    <a href='' class="sec1__right-a">Get Started <img src="imgs/arrow.svg"></a>
+                </div>
+            </section>
+            <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                      <ul class="splide__list">
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image1.jpg"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image2.png"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image3.png"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image4.jpg"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image5.jpg"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image6.jpg"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image7.jpg"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image8.jpg"></li>
+                          <li class="splide__slide"><img class="sl-img" width="418px" height="322px" src="imgs/image9.jpg"></li>
+                      </ul>
+                </div>
+              </div>
+              <section class="sec2">
+                <div class="sec2__img sec2__img1">
+                    <img src="imgs/supp1.svg">
+                </div>
+                <div class="sec2__img sec2__img2">
+                    <img src="imgs/supp2.svg">
+                </div>
+                <div class="sec2__img sec2__img3">
+                    <img src="imgs/supp3.svg">
+                </div>
+                <div class="sec2__img sec2__img4">
+                    <img src="imgs/supp4.svg">
+                </div>
+                <div class="sec2__img sec2__img5">
+                    <img src="imgs/supp5.svg">
+                </div>
+              </section>
+              <section class="sec3">
+                <h2>Create and sell your NFTs</h2>
+                <div class="sec3__cont">
+                    <div class="sec3__square">
+                        <div class="sec3__img">
+                            <img src="imgs/wyneCup.png">
+                        </div>
+                        <h2 class="sec3__sub">Set up your wallet</h2>
+                        <p>Once you’ve set up your wallet of choice, connect it to OpenSea by clicking the wallet icon in the top right corner.</p>
+                    </div>
+                    <div class="sec3__square">
+                        <div class="sec3__img">
+                            <img src="imgs/wyneCup.png">
+                        </div>
+                        <h2 class="sec3__sub">Add your NFTs</h2>
+                        <p>Once you’ve set up your wallet of choice, connect it to OpenSea by clicking the wallet icon in the top right corner.</p>
+                    </div>
+                    <div class="sec3__square">
+                        <div class="sec3__img">
+                            <img src="imgs/wyneCup.png">
+                        </div>
+                        <h2 class="sec3__sub">List them for sale</h2>
+                        <p>Once you’ve set up your wallet of choice, connect it to OpenSea by clicking the wallet icon in the top right corner.</p>
+                    </div>
+                </div>
+              </section>
+              <section class="sec4">
+                <div class="sec4__header">
+                    <h2>Live Auctions</h2>
+                    <a href="#">Get Started</a>
+                </div>
+                <div class="sec4__cont">
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image4.png">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Dao Vinci #0000</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@SalvadorDali</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image5.jpg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Fangster 8668</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Kurrebe</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image6.jpg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Sherbet 3062</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Noche</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                </div>
+              </section>
+              <section class="sec4 sec5">
+                <div class="sec4__header">
+                    <h2>Featured Artist</h2>
+                    <a href="#">Get Started</a>
+                </div>
+                <div class="sec5__cont">
+                    <div class="sec5__artist">
+                        <div class="sec5__img">
+                            <img src="imgs/Art1.png">
+                        </div>
+                        <h3>Crispin Berry</h3>
+                        <p><i class="fab fa-ethereum"></i> 214.2 ETH</p>
+                    </div>
+                    <div class="sec5__artist">
+                        <div class="sec5__img">
+                            <img src="imgs/Art2.png">
+                        </div>
+                        <h3>Wade Warren</h3>
+                        <p><i class="fab fa-ethereum"></i> 214.2 ETH</p>
+                    </div>
+                    <div class="sec5__artist">
+                        <div class="sec5__img">
+                            <img src="imgs/Art3.png">
+                        </div>
+                        <h3>Robert Fox</h3>
+                        <p><i class="fab fa-ethereum"></i> 214.2 ETH</p>
+                    </div>
+                    <div class="sec5__artist">
+                        <div class="sec5__img">
+                            <img src="imgs/Art4.png">
+                        </div>
+                        <h3>Jacob Jones</h3>
+                        <p><i class="fab fa-ethereum"></i> 214.2 ETH</p>
+                    </div>
+                    <div class="sec5__artist">
+                        <div class="sec5__img">
+                            <img src="imgs/Art5.png">
+                        </div>
+                        <h3>Ralph Edwards</h3>
+                        <p><i class="fab fa-ethereum"></i> 214.2 ETH</p>
+                    </div>
+                    <div class="sec5__artist">
+                        <div class="sec5__img">
+                            <img src="imgs/Art6.png">
+                        </div>
+                        <h3>Arlene McCoy</h3>
+                        <p><i class="fab fa-ethereum"></i> 214.2 ETH</p>
+                    </div>
+                </div>
+              </section>
+              <section class="sec6">
+                <h2>Hot NFTs</h2>
+                <ul class="sec6__tabs">
+                    <li><p>🎷 Music</p></li>
+                    <li><p>🎨 Art</p></li>
+                    <li><p>🎳 Sports</p></li>
+                    <li><p>🤖 Virtual</p></li>
+                    <li><p>📹 Videos</p></li>
+                    <li><p>More</p></li>
+                </ul>
+                <div class="sec4__cont">
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/Image2.png">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Dao Vinci #0000</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@SalvadorDali</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/Image3.png">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Fangster 8668</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Kurrebe</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image1.jpg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Sherbet 3062</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Noche</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image7.jpg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Cute Shiba</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Noche</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image8.jpg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Cute monkey</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Noche</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                    <div class="sec4__square">
+                        <div class="sec4__img">
+                            <img src="imgs/image9.jpg">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="sec4__sub">
+                            <p>Cute monkey</p>
+                            <p>Current Bid</p>
+                        </div>
+                        <div class="sec4__sub2">
+                            <div class="sec4__sub2-cont">
+                                <div class="sec4__sub2-img">
+                                    <img src="imgs/hero.png">
+                                </div>
+                                <p class="hero__name">@Noche</p>
+                            </div>
+                            <p class="hero__name-near">4.89 eTH</p>
+                        </div>
+                        <div class="sec4__sub3">
+                            <p class="sec4__timer"><i class="fas fa-fire"></i> 05 : 12 : 07 : 26</p>
+                            <a class="sec4__a" href="#">Bid</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec6__pagination">
+                    <p class="left__arrow"><i class="fas fa-arrow-alt-circle-left"></i></p>
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>6</p>
+                    <p>7</p>
+                    <p>8</p>
+                    <p>9</p>
+                    <p class="right__arrow"><i class="fas fa-arrow-alt-circle-right"></i></p>
+                </div>
+                <div class="sec6__pagination-scroll"></div>
+              </section>
+              <section class="sec7">
+                <div class="sec7__cont">
+                    <h2>Create Your Own NFT!</h2>
+                    <p>We have a large scale group to support each other in this game, Join us to get the news as soon as possible and follow our latest announcements!</p>
+                    <a href="#">Join Comunity Now</a>
+                </div>
+              </section>
+              <footer class="fot">
+                <div class="fot1">
+                    <div class="fot1__cont">
+                        <div class="fot1__img">
+                            <img src="imgs/Logo.svg">
+                        </div>
+                        <h1>Panda NFT</h1>
+                    </div>
+                    <p>The world’s first and largest digital marketplace for crypto collectibles and non-fungible tokens (NFTs). Buy, sell, and discover exclusive digital items.</p>
+                </div>
+                <div class="fot2">
+                    <h2>Resources</h2>
+                    <a href="#">Help Center</a>
+                    <a href="#">Platform Status</a>
+                    <a href="#">Partners</a>
+                    <a href="#">Gas-Free Marketplace</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="fot3">
+                    <h2>Company</h2>
+                    <a href="#">Our Team</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Career</a>
+                </div>
+                <div class="fot4">
+                    <h2>Contact</h2>
+                    <p>2715 Ash Dr. San Jose, South Dakota 83475</p>
+                    <div class="fot4__icons">
+                       <a href="#"><i class="fab fa-facebook"></i></a>
+                       <a href="#"><i class="fab fa-twitter"></i></a>
+                       <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+              </footer>
+        </main>
+    </div>
+
+
+    <script src="scripts/index.js"></script>
+    <script src="https://kit.fontawesome.com/d2468a7228.js" crossorigin="anonymous"></script>
+    <script>
+        var splide = new Splide('.splide', {
+            perPage: 3,
+            rewind: true,
+            pagination: false,
+            breakpoints: {
+                1920: {perPage: 4, gap: '0.2rem'},
+                1660: { perPage: 3, gap: '0.2rem' },
+                1224: { perPage: 2, gap: '0rem' },
+                850: { perPage: 1, gap: '0rem' },
+            }
+
+        });
+
+        splide.mount();
+    </script>
+</body>
+
+</html>
